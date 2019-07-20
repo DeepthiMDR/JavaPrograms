@@ -1,18 +1,22 @@
+import java.util.HashMap;
+
 class RnaTranscription {
+    HashMap<Character,Character> map = new HashMap<>();
+
+    RnaTranscription(){
+
+        map.put('G','C');
+        map.put('C','G');
+        map.put('T','A');
+        map.put('A','U');
+    }
 
     String transcribe(String dnaStrand) {
        StringBuilder rnaStrand=new StringBuilder("");
-       for (int i = 0; i < dnaStrand.length(); i++){
-           char ch = dnaStrand.charAt(i);
-           if(ch == 'G')
-               rnaStrand.append('C');
-           else if(ch == 'C')
-               rnaStrand.append('G');
-           else if(ch == 'T')
-               rnaStrand.append('A');
-           else
-               rnaStrand.append('U');
 
+       for (int i = 0; i < dnaStrand.length(); i++){
+
+            rnaStrand.append(map.get(dnaStrand.charAt(i)));
        }
        return rnaStrand.toString();
 
